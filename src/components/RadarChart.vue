@@ -260,9 +260,7 @@ watch(
   transform: translate(-50%, -50%);
 }
 
-.error {
-  top: 50%;
-  transform: translate(-50%, -50%);
+.error { 
   color: #ff4d4d;
 }
 

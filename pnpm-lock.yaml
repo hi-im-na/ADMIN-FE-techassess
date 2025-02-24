@@ -35,6 +35,18 @@ importers:
       core-js:
         specifier: ^3.8.3
         version: 3.40.0
+      datatables.net-bs5:
+        specifier: ^2.1.8
+        version: 2.2.2
+      datatables.net-select:
+        specifier: ^2.1.0
+        version: 2.1.0
+      datatables.net-select-bs5:
+        specifier: ^2.1.0
+        version: 2.1.0
+      datatables.net-vue3:
+        specifier: ^3.0.3
+        version: 3.0.4(datatables.net@2.2.2)(vue@3.5.13)
       sweetalert2:
         specifier: ^11.14.1
         version: 11.17.2
@@ -566,6 +578,25 @@ packages:
 
   csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
+
+  datatables.net-bs5@2.2.2:
+    resolution: {integrity: sha512-0mAbpUf0EpnIEc0RlN6vSrSk9y/+NuReiwDpjHYY3RfzdvH6Lt0+7Q9OU5RIbYxaFxES/z60thxdrw7IUFnBhw==}
+
+  datatables.net-select-bs5@2.1.0:
+    resolution: {integrity: sha512-N6VFo3DHsMCzM1Ef2pbUh1+pUd/MSHk48Z+X0QvbeknShWKdx0PS7FhLkaq8OalhHiEH0lyCy5L+1iR4bgAu9A==}
+
+  datatables.net-select@2.1.0:
+    resolution: {integrity: sha512-6B1sI5pfvBen+8kySl1T0hkGoUmrw+5YGqaW4NCg+1srMw+48YV5SdWPiyCQDoev2ajBdKzHuG/wzD2INMbmJw==}
+
+  datatables.net-vue3@3.0.4:
+    resolution: {integrity: sha512-m7b7+zdH07d6J+Dz97KNs2PMezxZk+RgB4Or9i0J/SAXA/kaBRpQLTpr9Pyg8fh66/r4FQxnIkHhPTbW78Ep5A==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      datatables.net: ^2
+      vue: ^3.0.5
+
+  datatables.net@2.2.2:
+    resolution: {integrity: sha512-gfODIKE3gpgbVeZy2QGj2Dq9roO6hy00S+k1knklrqlMyAMrh1wt0Q6ryBUM7gU96U77ysbq8dYhxFdmcC/oPQ==}
 
   date-fns@2.30.0:
     resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
@@ -1312,6 +1343,31 @@ snapshots:
   core-js@3.40.0: {}
 
   csstype@3.1.3: {}
+
+  datatables.net-bs5@2.2.2:
+    dependencies:
+      datatables.net: 2.2.2
+      jquery: 3.7.1
+
+  datatables.net-select-bs5@2.1.0:
+    dependencies:
+      datatables.net-bs5: 2.2.2
+      datatables.net-select: 2.1.0
+      jquery: 3.7.1
+
+  datatables.net-select@2.1.0:
+    dependencies:
+      datatables.net: 2.2.2
+      jquery: 3.7.1
+
+  datatables.net-vue3@3.0.4(datatables.net@2.2.2)(vue@3.5.13):
+    dependencies:
+      datatables.net: 2.2.2
+      vue: 3.5.13
+
+  datatables.net@2.2.2:
+    dependencies:
+      jquery: 3.7.1
 
   date-fns@2.30.0:
     dependencies:
