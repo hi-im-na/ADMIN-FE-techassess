@@ -4,7 +4,7 @@
       <div class="d-flex flex-column">
         <div class="d-flex profile mb-5 gap-3">
           <div class="avatar">
-            <img src="../assets/logo.png" alt="avatar" />
+            <img src="@/assets/logo.png" alt="avatar" />
           </div>
           <div class="info text-start">
             <table class="table">
