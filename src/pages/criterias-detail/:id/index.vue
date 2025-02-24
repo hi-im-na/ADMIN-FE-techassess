@@ -113,13 +113,13 @@
 
 <script>
 import CriteriasService from "@/services/CriteriasService";
-import EditQuestionModal from "./modal/Criterias/EditQuestionModal.vue";
+import EditQuestionModal from "./components/EditQuestionModal.vue";
 import Swal from "sweetalert2";
 import QuestionService from "@/services/QuestionService";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
-import AddQuestionModal from "./modal/Criterias/AddQuestionModal.vue";
-import DetailQuestionModal from "./modal/Criterias/DetailQuestionModal.vue";
+import AddQuestionModal from "./components/AddQuestionModal.vue";
+import DetailQuestionModal from "./components/DetailQuestionModal.vue";
 
 export default {
   components: {

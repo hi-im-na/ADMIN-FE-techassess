@@ -127,8 +127,8 @@ import CriteriasService from "@/services/CriteriasService";
 import Swal from "sweetalert2";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
-import AddCriteriasModal from "./modal/Criterias/AddCriteriasModal.vue";
-import EditCriteriasModal from "./modal/Criterias/EditCriteriasModal.vue";
+import AddCriteriasModal from "./components/AddCriteriasModal.vue";
+import EditCriteriasModal from "./components/EditCriteriasModal.vue";
 
 export default {
   components: {

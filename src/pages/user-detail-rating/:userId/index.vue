@@ -137,8 +137,8 @@ import OverallRatedResDto from "@/model/OverallRatedResDto";
 import RatedRankService from "@/services/RatedRankService";
 import UserService from "@/services/UserService";
 import ProjectService from "@/services/ProjectService";
-import MyTooltips from "@/components/common/MyTooltips.vue";
-import RadarChart from "./RadarChart.vue";
+import MyTooltips from "@/components/MyTooltips.vue";
+import RadarChart from "@/components/RadarChart.vue";
 import defaultImage from "@/assets/avata.png";
 export default {
   name: "DetailUserRating",

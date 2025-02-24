@@ -48,7 +48,7 @@ export default {
     },
     data() {
         return {
-            apiUrl: process.env.VUE_APP_DB_URL,
+            apiUrl: import.meta.env.VUE_APP_URL,
             editingProject: {
                 id: null,
                 name: "",

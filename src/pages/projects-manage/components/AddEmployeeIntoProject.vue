@@ -102,7 +102,7 @@ export default {
   emits: ["close", "add"],
   data() {
     return {
-      apiUrl: process.env.VUE_APP_DB_URL,
+      apiUrl: import.meta.env.VUE_APP_URL,
       tableSearchQuery: "",
       selectedEmployees: [], // Store selected employee indices
       currentPage: 1,

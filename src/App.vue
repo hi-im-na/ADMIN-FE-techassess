@@ -10,16 +10,8 @@
     </div>
   </div>
 </template>
-<script>
-import Sidebar from './components/Sidebar.vue';
-
-
-export default {
-  name: 'App',
-  components:{
-    Sidebar
-  }
-};
+<script setup>
+import Sidebar from '@/layouts/sidebar.vue'; 
 </script>
 
 <style scoped>
