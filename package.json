@@ -2,6 +2,7 @@
   "name": "techassess360-admin-fe",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "serve": "vite",
     "build": "vite build",
