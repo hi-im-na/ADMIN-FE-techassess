@@ -105,9 +105,9 @@
 </template>
 
 <script>
-import AddProject from "./modal/AddProject.vue";
-import UpdateProject from "./modal/UpdateProject.vue";
-import ProjectDetails from "./modal/ProjectDetails.vue";
+import AddProject from "./components/AddProject.vue";
+import UpdateProject from "./components/UpdateProject.vue";
+import ProjectDetails from "./components/ProjectDetails.vue";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -120,7 +120,7 @@ export default {
   },
   data() {
     return {
-      apiUrl: process.env.VUE_APP_DB_URL,
+      apiUrl: import.meta.env.VUE_APP_URL,
       isShowProjectAddModal: false,
       isShowProjectDetailsModal: false,
       isShowProjectUpdateModal: false,

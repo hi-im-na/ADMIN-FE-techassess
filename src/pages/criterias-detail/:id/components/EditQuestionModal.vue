@@ -148,7 +148,7 @@ export default {
 
       try {
         await axios.put(
-          process.env.VUE_APP_DB_URL + `/api/questions/${this.localQuestion.id}`,
+          import.meta.env.VUE_APP_URL + `/api/questions/${this.localQuestion.id}`,
           payload
         );
         this.$emit("question-updated", payload);

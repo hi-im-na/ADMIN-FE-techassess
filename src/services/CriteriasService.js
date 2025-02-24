@@ -1,21 +1,14 @@
-import axios from "axios";
+import request from "@/utils/request";
+
 const CriteriasService = {
   addCriteria: async (formData) => {
-    const resp = await axios.post(
-      process.env.VUE_APP_DB_URL + "/api/criterias",
-      formData,
-      {
-        headers: { "Content-Type": "application/json" }
-      }
-    );
+    const resp = await request.post("/api/criterias", formData);
     return resp.data;
   },
 
   deletedCriterias: async (id) => {
     try {
-      const response = await axios.delete(
-        process.env.VUE_APP_DB_URL + `/api/criterias/${id}`
-      );
+      const response = await request.delete(`/api/criterias/${id}`);
       return response;
     } catch (error) {
       console.error(error);
@@ -24,7 +17,7 @@ const CriteriasService = {
 
   fetchCriterias: async () => {
     try {
-      const response = await axios.get(process.env.VUE_APP_DB_URL + "/api/criterias");
+      const response = await request.get("/api/criterias");
       return response.data;
     } catch (error) {
       console.error(error);
@@ -33,8 +26,8 @@ const CriteriasService = {
 
   fetchCriteriasById: async (id, department_id) => {
     try {
-      const response = await axios.get(
-        process.env.VUE_APP_DB_URL + `/api/criterias/${id}/${department_id}`
+      const response = await request.get(
+        `/api/criterias/${id}/${department_id}`
       );
       return response.data;
     } catch (error) {
@@ -48,8 +41,8 @@ const CriteriasService = {
         point: criteriaData.point,
       };
 
-      const response = await axios.put(
-        process.env.VUE_APP_DB_URL + `/api/criterias/${id}`,
+      const response = await request.put(
+        `/api/criterias/${id}`,
         updatedCriteria
       );
       return response.data;
@@ -58,19 +51,23 @@ const CriteriasService = {
       throw error;
     }
   },
-  updateCriteriaInDepartment: async (critediaId, departmentId, criteriaReqDto) => {
+  updateCriteriaInDepartment: async (
+    critediaId,
+    departmentId,
+    criteriaReqDto
+  ) => {
     try {
       const dto = {
         criteriaReqDTO: {
           title: criteriaReqDto.title,
-          visibleFor: criteriaReqDto.visibleFor
+          visibleFor: criteriaReqDto.visibleFor,
         },
         criteriaId: critediaId,
-        departmentId: departmentId
+        departmentId: departmentId,
       };
 
-      const response = await axios.put(
-        process.env.VUE_APP_DB_URL + `/api/criterias/update-criterion-in-department`,
+      const response = await request.put(
+        `/api/criterias/update-criterion-in-department`,
         dto
       );
       return response.data;
@@ -83,14 +80,12 @@ const CriteriasService = {
   // department
   fetchDepartment: async () => {
     try {
-      const response = await axios.get(process.env.VUE_APP_DB_URL + "/api/departments");
+      const response = await request.get("/api/departments");
       return response.data;
     } catch (error) {
       console.error(error);
     }
   },
-
-
 };
 
 export default CriteriasService;

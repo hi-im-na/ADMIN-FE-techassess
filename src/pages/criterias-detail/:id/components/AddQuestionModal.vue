@@ -111,7 +111,7 @@ export default {
       };
 
       try {
-        await axios.post(process.env.VUE_APP_DB_URL + "/api/questions", payload);
+        await axios.post(import.meta.env.VUE_APP_URL + "/api/questions", payload);
         toast.success("Thêm câu hỏi thành công");
         this.$emit("question-added", payload);
         this.closeForm(); // Đóng form sau khi thêm câu hỏi
