@@ -7,3 +7,4 @@
 - [path].vue đại diện cho dynamic routing (vd: /papes/post/[id].vue tương đương /post/:id) và tên file phải trùng với tên path
 - other:
   + pages/post/:postId/users tương đương /post/( [postId].vue và folder users/index.vue)
+**đối với tailwindcss thì thêm tiền tố tw- để css bằng tailwind**
