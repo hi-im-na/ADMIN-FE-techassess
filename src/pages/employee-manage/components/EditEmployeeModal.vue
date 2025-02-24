@@ -106,7 +106,7 @@ export default {
   data() {
     return {
       employee: { ...this.employeeData },
-      apiUrl: process.env.VUE_APP_DB_URL,
+      apiUrl: import.meta.env.VUE_APP_URL,
       positions: EPosition,
       genders: EGender,
       departments: EDepartment,

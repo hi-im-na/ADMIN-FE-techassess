@@ -96,8 +96,8 @@
 </template>
 
 <script>
-import AddEmployeeModal from "./modal/AddEmployeeModal.vue";
-import EditEmployeeModal from "./modal/EditEmployeeModal.vue";
+import AddEmployeeModal from "./components/AddEmployeeModal.vue";
+import EditEmployeeModal from "./components/EditEmployeeModal.vue";
 import Swal from "sweetalert2";
 import UserService from "@/services/UserService";
 import ProjectService from "@/services/ProjectService";

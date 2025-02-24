@@ -86,10 +86,10 @@
 </template>
 
 <script>
-import EditDepartmentsModal from "./modal/Departments/EditDepartmentsModal.vue";
+import EditDepartmentsModal from "./components/EditDepartmentsModal.vue";
 import Swal from "sweetalert2";
 import DepartmentsService from "@/services/DepartmentsService";
-import AddDepartmentModal from "./modal/Departments/AddDepartmentModal.vue";
+import AddDepartmentModal from "./components/AddDepartmentModal.vue";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 
