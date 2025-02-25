@@ -117,14 +117,26 @@ export default {
     totalPages() {
       return Math.ceil(this.departments.length / this.itemsPerPage);
     },
+    filteredDepartments() {
+    return this.departments.filter((department) =>
+      this.fetchUnsigned(department.name).includes(this.fetchUnsigned(this.searchQuery))
+    );
+  },
 
     paginatedDepartments() {
       const start = (this.currentPage - 1) * this.itemsPerPage;
       const end = start + this.itemsPerPage;
-      return this.departments.slice(start, end);
+      return this.filteredDepartments.slice(start, end);
     },
   },
   methods: {
+    fetchUnsigned(str) {//tìm kiếm khoogn dấu
+    if (typeof str !== "string") return "";
+    return str
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "") 
+        .toLowerCase(); 
+    },
     // Lấy danh sách phòng ban từ API
     async fetchDepartments() {
       try {

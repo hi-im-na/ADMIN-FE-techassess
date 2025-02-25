@@ -6,7 +6,7 @@
     <nav class="navbar navbar-light ">
       <div class="top-bar d-flex flex-row justify-content-between" style="width: 100%;">
         <!-- Search Bar -->
-        <input type="text" v-model="searchQuery" placeholder="Tìm kiếm tên nhân viên hoặc bộ phận..."
+        <input type="text" v-model="searchQuery" placeholder="Tìm kiếm tên nhân viên..."
         class="search-bar" />
         <button class="btn btn-success me-3" type="button" @click="openModal">
           Thêm nhân viên
@@ -29,7 +29,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(employee, index) in paginatedEmployees" :key="employee.id">
+          <tr v-for="(employee, index)  in paginatedEmployees" :key="employee.id">
             <td>{{ index + 1 }}</td>
             <td>
               <img :src="employee.fileInfo ? employee.fileInfo.fileUrl : defaultImg
@@ -118,6 +118,7 @@ export default {
       itemsPerPage: 10,
       defaultImg: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
       showProjectList: false,
+      searchQuery: "",
     };
   },
   mounted() {
@@ -128,17 +129,31 @@ export default {
     this.fetchEmployees();
   },
   computed: {
-    totalPages() {
-      return Math.ceil(this.employees.length / this.itemsPerPage);
-    },
-
-    paginatedEmployees() {
-      const start = (this.currentPage - 1) * this.itemsPerPage;
-      const end = start + this.itemsPerPage;
-      return this.employees.slice(start, end);
-    },
+  totalPages() {
+    return Math.ceil(this.filteredEmployees.length / this.itemsPerPage);
   },
+
+  filteredEmployees() {
+    return this.employees.filter((employee) =>
+      this.fetchUnsigned(employee.name).includes(this.fetchUnsigned(this.searchQuery))
+    );
+  },
+
+  paginatedEmployees() {
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    const end = start + this.itemsPerPage;
+    return this.filteredEmployees.slice(start, end); 
+  }
+},
+
   methods: {
+    fetchUnsigned(str) {//tìm kiếm khoogn dấu
+    if (typeof str !== "string") return "";
+    return str
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "") 
+        .toLowerCase(); 
+    },
     async fetchEmployees() {
       try {
         const response = await UserService.fetchUsers();

@@ -34,10 +34,7 @@
   </aside>
 </template>
 
-<script>
-export default {
-  name: 'SidebarComponent',
-};
+<script> 
 </script>
 
 <style scoped>
