@@ -162,14 +162,28 @@ export default {
     totalPages() {
       return Math.ceil(this.criterias.length / this.itemsPerPage);
     },
+    
+    fillterCriterias (){
+      return this.criterias.filter((criteria)=>
+        this.fetchUnsigned(criteria.title).includes(this.fetchUnsigned(this.searchQuery))
+     )
+    },
 
     paginatedCriterias() {
       const start = (this.currentPage - 1) * this.itemsPerPage;
       const end = start + this.itemsPerPage;
-      return this.criterias.slice(start, end);
+      return this.fillterCriterias.slice(start, end);
     },
   },
-  methods: {
+  methods: {  
+
+    fetchUnsigned(str) {//tìm kiếm khoogn dấu
+    if (typeof str !== "string") return "";
+    return str
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "") 
+        .toLowerCase(); 
+    },
     async fetchDepartments() {
       try {
         const response = await CriteriasService.fetchDepartment();
