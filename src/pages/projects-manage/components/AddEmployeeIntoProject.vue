@@ -149,8 +149,12 @@ export default {
       const employeeIds = this.selectedEmployees.map(
         (index) => this.employees[index].id
       );
+      const leaderId = employeeIds[0];
+      console.log("id lerder: ",leaderId);
+      
       const requestData = {
         employeeIds: employeeIds,
+        leaderId: leaderId,
       };
       try {
         const response = await axios.post(
